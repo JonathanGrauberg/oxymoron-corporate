@@ -4,8 +4,6 @@ import Home from "./pages/Home";
 import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
 import ServicioDetail from "./pages/ServicioDetail";
-import Novedades from "./pages/Novedades";
-import NovedadDetail from "./pages/NovedadDetail";
 import Contacto from "./pages/Contacto";
 
 export default function App() {
@@ -16,8 +14,6 @@ export default function App() {
         <Route path="nosotros" element={<Nosotros />} />
         <Route path="servicios" element={<Servicios />} />
         <Route path="servicios/:slug" element={<ServicioDetail />} />
-        <Route path="novedades" element={<Novedades />} />
-        <Route path="novedades/:slug" element={<NovedadDetail />} />
         <Route path="contacto" element={<Contacto />} />
       </Route>
     </Routes>
