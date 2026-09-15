@@ -1,19 +1,15 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import MazePattern from "../components/MazePattern";
-import { mazeWide } from "../assets/mazePaths";
 import { useReveal } from "../hooks/useReveal";
-import Gear from "../components/Gear";
+import HeroSlider from "../components/HeroSlider";
 import { mision, novedades, services, vision } from "../data/content";
 
 export default function Home() {
-  const heroRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const purposeRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const newsRef = useRef<HTMLDivElement>(null);
 
-  useReveal(heroRef, "[data-reveal]", { y: 24, stagger: 0.1, start: "top 95%" });
   useReveal(introRef, "[data-reveal]", { y: 20, stagger: 0.08 });
   useReveal(purposeRef, "[data-reveal]", { y: 20, stagger: 0.1 });
   useReveal(servicesRef, "[data-reveal]", { y: 20, stagger: 0.06 });
@@ -21,48 +17,7 @@ export default function Home() {
 
   return (
     <>
-      <section ref={heroRef} className="relative bg-ink text-paper pt-40 pb-28 md:pt-48 md:pb-36 overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 -bottom-16 opacity-[0.14]">
-          <MazePattern data={mazeWide} color="var(--color-paper)" strokeWidth={7} className="w-full" />
-        </div>
-        <div className="pointer-events-none absolute -right-14 top-16 opacity-[0.08] w-[260px] h-[260px] md:w-[360px] md:h-[360px]">
-          <Gear color="var(--color-paper)" className="w-full h-full" />
-        </div>
-
-        <div className="container-px relative">
-          <div data-reveal className="eyebrow mb-7 flex items-center gap-3 text-paper/50">
-            <span className="w-8 h-px bg-paper/40" />
-            Gestión y profesionalización de empresas
-          </div>
-
-          <h1
-            data-reveal
-            className="max-w-3xl text-[2.4rem] leading-[1.08] sm:text-[3.2rem] md:text-[4rem] font-semibold tracking-tight"
-          >
-            Pensamos la gestión
-            <br />
-            como un <em className="italic font-normal">oxymoron:</em>
-            <br />
-            instinto y razón.
-          </h1>
-
-          <p data-reveal className="mt-8 max-w-xl text-[1.05rem] leading-relaxed text-paper/65">
-            Asistimos a empresas, entidades deportivas y emprendedores en la
-            profesionalización de su gestión y en la identificación,
-            desarrollo y protección de sus activos intangibles.
-          </p>
-
-          <div data-reveal className="mt-11 flex flex-wrap items-center gap-4">
-            <Link to="/contacto" className="btn-ink">
-              Agendar consulta
-              <span aria-hidden>→</span>
-            </Link>
-            <Link to="/servicios" className="btn-ghost !border-paper/35 !text-paper hover:!bg-paper hover:!text-ink">
-              Ver servicios
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       <section className="py-24 md:py-32">
         <div ref={introRef} className="container-px max-w-2xl">

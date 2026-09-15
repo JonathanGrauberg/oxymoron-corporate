@@ -84,6 +84,23 @@ export const services = [
   },
 ];
 
+// Orden real del slider del sitio viejo (Profesionalización → Entidades
+// Deportivas → Emprendemos → Intangibles). Cada slide toma título/subtítulo
+// del service correspondiente; la foto de fondo se busca en
+// `/public/hero/<slug>.jpg` — subir ahí las 4 fotos originales del slider
+// con ese nombre (ej. "profesionalizacion-de-empresas.jpg") y aparecen solas.
+export const heroSlideOrder = [
+  "profesionalizacion-de-empresas",
+  "gestion-de-entidades-deportivas",
+  "emprendemos",
+  "gestion-de-intangibles",
+];
+
+export const heroSlides = heroSlideOrder.map((slug) => {
+  const service = services.find((s) => s.slug === slug)!;
+  return { ...service, image: `/hero/${slug}.jpg` };
+});
+
 export const directors = [
   {
     name: "Santiago Miguel Villa",
