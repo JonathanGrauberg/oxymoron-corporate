@@ -141,26 +141,80 @@ export const vision =
 export const mision =
   "Asistir a nuestros socios y clientes en la profesionalización de sus empresas y proyectos mediante nuevas pautas de gestión basadas en la eficiencia, la confiabilidad y la previsión.";
 
+// Cada novedad puede tener body (array de párrafos) + image para tener
+// página propia de detalle (/novedades/<slug>), igual que en el sitio
+// viejo. Las que todavía no tienen body completo muestran el excerpt como
+// contenido en la página de detalle — pedirle a Jona el texto completo y
+// la imagen de cada una para terminarlas (quedó marcado con TODO abajo).
 export const novedades = [
+  {
+    slug: "curso-de-posgrado-de-activos-intangibles",
+    title: "Curso de Posgrado de Activos Intangibles",
+    date: "11 de julio, 2020",
+    excerpt:
+      "El curso propuesto versa sobre activos intangibles en empresas. Se propone brindar un panorama teórico y práctico de la protección, gestión y desarrollo de dichos activos.",
+    // TODO(Jona): falta el flyer original (facultad de Derecho / UCA) en
+    // buena resolución — subir a public/novedades/curso-posgrado-intangibles.jpg
+    image: "/novedades/curso-posgrado-intangibles.jpg",
+    body: [
+      "El curso propuesto versa sobre activos intangibles en empresas. Se propone brindar un panorama teórico y práctico de la protección, gestión y desarrollo de dichos activos. Ello tanto desde su regulación como de su instrumentación en la realidad económica y social nacional e internacional.",
+      "El público al que está orientado es profesionales del mundo empresario (abogados, contadores, administradores de empresas, etc.). Se apunta tanto a profesionales internos como asesores de empresas.",
+      "El abordaje se centra en tres núcleos temáticos: detección de intangibles y sistemas de protección; gestión y monetización de activos intangibles; y desarrollo estratégico de activos intangibles.",
+      "Cada núcleo temático está pensado en cuatro jornadas (12 jornadas en total). Cada jornada consta de dos módulos de 90 minutos con un intervalo entre ambos.",
+      "La dirección del curso está a cargo de Santiago Villa y Pablo Lamas (directores del Programa de Propiedad Intelectual de Entre Ríos).",
+    ],
+  },
+  {
+    slug: "la-tangibilidad-de-lo-intangible",
+    title: "La tangibilidad de lo intangible.",
+    date: "11 de julio, 2020",
+    excerpt:
+      'Cuando era pequeño tuve la oportunidad de escuchar de un gran filósofo italiano una frase de la sabiduría china: "cuando el dedo señala a la luna, el tonto mira al dedo". El pensar en nuestra sociedad frente a los desafíos que nos plantea el cambio de paradigma y la economía del conocimiento la trajo de nuevo a mi memoria.',
+    // TODO(Jona): falta el texto completo de la nota — la que tengo está
+    // cortada donde termina el "[...]" del sitio viejo.
+  },
+  {
+    slug: "proteccion-de-intangibles-y-tecnologias",
+    title: "Protección de Intangibles y Tecnologías",
+    date: "1 de diciembre, 2019",
+    excerpt:
+      "Pablo Lamas, Santiago Villa y Patricio Albornoz estuvieron dando una charla sobre Protección de Intangibles y Tecnologías en la Universidad Católica Argentina (UCA) Puerto Madero.",
+    // TODO(Jona): falta el texto completo y la foto de la charla (la del
+    // aula UCA) — subir a public/novedades/proteccion-intangibles-tecnologias.jpg
+    image: "/novedades/proteccion-intangibles-tecnologias.jpg",
+  },
   {
     slug: "agrolideres",
     title: "Agrolíderes",
+    date: "",
     excerpt:
       "En el Programa de Agrolíderes, Pablo Lamas cuenta el proyecto de transformación de una empresa que pasa de tener un foco netamente agrícola a una empresa industrial con foco en la tecnología de alimentos.",
+    // TODO(Jona): esta y las siguientes dos eran videos en el sitio viejo.
+    // Pasame el link (YouTube/Vimeo) o el archivo para embeberlo en la
+    // página de detalle en vez de (o además de) el texto.
   },
   {
     slug: "propiedad-intelectual-un-intangible-que-no-se-protege",
     title: "Propiedad intelectual: un intangible que no se protege",
+    date: "",
     excerpt:
       "Pablo Lamas habla sobre la protección y el desarrollo de la Propiedad Intelectual en la economía del país y del interior. Qué es, cómo protegerla y cuáles son las herramientas más adecuadas para su desarrollo.",
   },
   {
     slug: "el-valor-de-los-intangibles",
     title: "El valor de los intangibles",
+    date: "",
     excerpt:
       "Pablo Lamas explica la importancia de la detección, valuación, protección y desarrollo de los intangibles en las empresas, muchas veces desatendidos hasta que ponen en riesgo el éxito de lo obtenido.",
   },
-];
+] satisfies Array<{
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  image?: string;
+  body?: string[];
+}>;
 
 export const contactInfo = {
   email: "info@oxymoron.com.ar",

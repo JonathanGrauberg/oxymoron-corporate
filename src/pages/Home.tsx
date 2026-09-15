@@ -73,16 +73,32 @@ export default function Home() {
         <div className="container-px">
           <div className="eyebrow mb-5">Novedades</div>
           <div ref={newsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {novedades.map((n) => (
-              <article key={n.slug} data-reveal className="bg-paper border border-line rounded-2xl p-7 flex flex-col">
-                <h3 className="font-display text-lg font-semibold leading-snug">{n.title}</h3>
-                <p className="mt-3 text-[0.85rem] leading-relaxed text-mute flex-1">{n.excerpt}</p>
-                <Link to="/novedades" className="mt-5 text-xs font-semibold text-mute-2 hover:text-ink transition-colors inline-flex items-center gap-1.5 w-fit">
-                  Leer más <span aria-hidden>→</span>
-                </Link>
-              </article>
+            {novedades.slice(0, 3).map((n) => (
+              <Link
+                key={n.slug}
+                to={`/novedades/${n.slug}`}
+                data-reveal
+                className="group bg-paper border border-line rounded-2xl overflow-hidden hover:border-ink transition-colors duration-300 flex flex-col"
+              >
+                {n.image && (
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img src={n.image} alt={n.title} className="w-full h-full object-cover" />
+                  </div>
+                )}
+                <div className="p-7 flex flex-col flex-1">
+                  <h3 className="font-display text-lg font-semibold leading-snug">{n.title}</h3>
+                  <p className="mt-3 text-[0.85rem] leading-relaxed text-mute flex-1">{n.excerpt}</p>
+                  <span className="mt-5 text-xs font-semibold text-mute-2 group-hover:text-ink transition-colors inline-flex items-center gap-1.5 w-fit">
+                    Leer más <span aria-hidden>→</span>
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
+          <Link to="/novedades" className="btn-ghost mt-10 inline-flex">
+            Ver todas
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </section>
     </>
