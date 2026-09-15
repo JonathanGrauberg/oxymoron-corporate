@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Archivo", sans-serif;
+  --font-body: "Plus Jakarta Sans", "Inter", sans-serif;
+
+  --color-ink: #0a0a0a;
+  --color-ink-2: #161616;
+  --color-paper: #f6f5f1;
+  --color-paper-2: #ececE7;
+  --color-line: #d8d6cf;
+  --color-mute: #6b6a64;
+  --color-mute-2: #98968d;
+
+  --breakpoint-xs: 420px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+    background: var(--color-paper);
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+/*
+  Custom utilities are registered via Tailwind's @utility API (v4) rather
+  than plain @layer utilities classes. This makes them participate in
+  Tailwind's own specificity/ordering system, so responsive variants like
+  `hidden md:inline-flex` on the same element still win as expected.
+*/
+
+@utility eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+}
+
+@utility container-px {
+  padding-left: clamp(1.25rem, 5vw, 6vw);
+  padding-right: clamp(1.25rem, 5vw, 6vw);
+}
+
+@utility hairline {
+  height: 1px;
+  background: var(--color-line);
+}
+
+@utility btn-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+  will-change: transform;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: var(--color-ink-2);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+  padding: 0.9rem 1.85rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: background 0.35s ease, color 0.35s ease;
+
+  &:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+}
+
+@utility num-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 10px;
+}
