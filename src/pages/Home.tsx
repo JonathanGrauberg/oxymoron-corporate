@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useReveal } from "../hooks/useReveal";
 import HeroSlider from "../components/HeroSlider";
+import LegalTeaser from "../components/LegalTeaser";
 import { mision, novedades, services, vision } from "../data/content";
 
 export default function Home() {
@@ -68,6 +69,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LegalTeaser />
 
       <section className="bg-paper-2 py-24 md:py-32">
         <div className="container-px">
