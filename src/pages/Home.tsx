@@ -22,7 +22,7 @@ export default function Home() {
         <div ref={introRef} className="container-px max-w-2xl">
           <div data-reveal className="eyebrow mb-5">Conócenos</div>
           <p data-reveal className="text-xl md:text-2xl leading-snug font-medium">
-            Somos una empresa dedicada a la gestión y la profesionalización de
+            Somos una empresa dedicada a la profesionalización de
             la gestión, tanto de proyectos propios como de terceros.
           </p>
           <Link data-reveal to="/nosotros" className="btn-ghost mt-8 inline-flex">
