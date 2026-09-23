@@ -46,7 +46,7 @@ export default function Nosotros() {
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-14">
             Un cuerpo de profesionales y especialistas
           </h2>
-          <div ref={teamRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 max-w-4xl mx-auto">
+          <div ref={teamRef} className="grid sm:grid-cols-2 gap-x-12 gap-y-12 max-w-2xl mx-auto">
             {team.map((m) => (
               <div key={m.name} data-reveal className="text-center flex flex-col items-center">
                 <Avatar name={m.name} size={84} grayscale />

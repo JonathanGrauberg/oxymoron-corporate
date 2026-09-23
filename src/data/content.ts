@@ -118,14 +118,8 @@ export const directors = [
 export const team = [
   { name: "Araceli J. Beisel", role: "Abogada", description: "Agente de la Propiedad Industrial. Registro de marcas, patentamiento, derechos de autor." },
   { name: "Ana L. Ormaechea", role: "Lic. en Biotecnología", description: "MBA. Project Management. Desarrollo de nuevos productos. Sistemas de calidad." },
-  { name: "Milagros M. Muñiz", role: "Abogada", description: "Especialista en Compliance, Gestión del Talento Humano y Responsabilidad Social Empresaria." },
-  { name: "Francisco Brown", role: "Abogado. Escribano", description: "Organización jurídica empresarial. Constitución de sociedades y planificación tributaria." },
   { name: "Federico González Lamas", role: "Lic. en Administración de Entidades Deportivas", description: "Gestión y capacitaciones en clubes y entidades deportivas." },
   { name: "Gema Gambino", role: "Contadora", description: "MBA. Organización de la administración y finanzas." },
-  { name: "Lucía Villalonga", role: "Marketing y Comercialización", description: "Especialista en desarrollo de negocios a través del marketing." },
-  { name: "Carlos Fortini", role: "Ingeniero Agrónomo", description: "Buenas prácticas agronómicas y forestales." },
-  { name: "Tamara Wolovich", role: "Bioquímica", description: "MBA. Sistemas y certificaciones de calidad (GMP, HACCP, ISO)." },
-  { name: "Ignacio Pedrosa", role: "Administración de Empresas", description: "Desarrollo comercial. Marketing estratégico y digital." },
 ] satisfies Array<{ name: string; role: string; description: string; photo?: string }>;
 
 export const aboutIntro =
