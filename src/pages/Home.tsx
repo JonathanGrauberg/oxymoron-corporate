@@ -15,7 +15,7 @@ export default function Home() {
   useReveal(introRef, "[data-reveal]", { y: 20, stagger: 0.08 });
   useReveal(purposeRef, "[data-reveal]", { y: 20, stagger: 0.1 });
   useReveal(servicesRef, "[data-reveal]", { y: 20, stagger: 0.06 });
-  useParallax(purposeBgRef, { distance: 14 });
+  useParallax(purposeBgRef, { distance: 34 });
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function Home() {
             ref={purposeBgRef}
             src="/images/bg-mision-vision.png"
             alt=""
-            className="pointer-events-none absolute inset-x-0 -top-[20%] h-[140%] w-full object-cover"
+            className="pointer-events-none absolute inset-x-0 -top-[30%] h-[160%] w-full object-cover"
           />
           {/* "Viñeta invertida": oscuro sólido al centro (donde está el
               texto), se va aclarando/transparentando hacia los costados

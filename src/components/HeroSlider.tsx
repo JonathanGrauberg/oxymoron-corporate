@@ -12,7 +12,7 @@ export default function HeroSlider() {
   const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const bgRef = useRef<HTMLDivElement>(null);
-  useParallax(bgRef, { distance: 12 });
+  useParallax(bgRef, { distance: 26 });
 
   function go(i: number) {
     setIndex((i + heroSlides.length) % heroSlides.length);
@@ -37,7 +37,7 @@ export default function HeroSlider() {
           más (116% de alto) para tener margen de sobra al moverse con el
           scroll sin dejar ver el borde. Mientras no exista la foto en
           public/images/, se ve el patrón de laberinto como placeholder. */}
-      <div ref={bgRef} className="absolute inset-x-0 -top-[8%] h-[116%]">
+      <div ref={bgRef} className="absolute inset-x-0 -top-[20%] h-[140%]">
         {heroSlides.map((slide, i) => (
           <div
             key={slide.slug}

@@ -18,7 +18,7 @@ export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroPr
   const ref = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLImageElement>(null);
   useReveal(ref, "[data-reveal]", { y: 20, stagger: 0.08 });
-  useParallax(bgRef, { distance: 16 });
+  useParallax(bgRef, { distance: 34 });
 
   return (
     <section className="relative bg-ink text-paper pt-40 pb-20 md:pt-48 md:pb-24 overflow-hidden">
@@ -28,7 +28,7 @@ export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroPr
             ref={bgRef}
             src={image}
             alt=""
-            className="pointer-events-none absolute inset-x-0 -top-[20%] h-[140%] w-full object-cover"
+            className="pointer-events-none absolute inset-x-0 -top-[30%] h-[160%] w-full object-cover"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/80 via-45% to-transparent" />
         </div>
