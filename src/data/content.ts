@@ -86,19 +86,18 @@ export const services = [
 
 // Orden real del slider del sitio viejo (Profesionalización → Entidades
 // Deportivas → Emprendemos → Intangibles). Cada slide toma título/subtítulo
-// del service correspondiente; la foto de fondo se busca en
-// `/public/hero/<slug>.jpg` — subir ahí las 4 fotos originales del slider
-// con ese nombre (ej. "profesionalizacion-de-empresas.jpg") y aparecen solas.
-export const heroSlideOrder = [
-  "profesionalizacion-de-empresas",
-  "gestion-de-entidades-deportivas",
-  "emprendemos",
-  "gestion-de-intangibles",
+// del service correspondiente; la foto sale de public/images/ (el nombre de
+// archivo no siempre coincide con el slug, por eso el mapeo explícito).
+export const heroSlideOrder: Array<{ slug: string; image: string }> = [
+  { slug: "profesionalizacion-de-empresas", image: "/images/profesionalizacion-de-empresas.png" },
+  { slug: "gestion-de-entidades-deportivas", image: "/images/gestion-deportiva.png" },
+  { slug: "emprendemos", image: "/images/emprendemos.png" },
+  { slug: "gestion-de-intangibles", image: "/images/gestion-de-intangibles.png" },
 ];
 
-export const heroSlides = heroSlideOrder.map((slug) => {
+export const heroSlides = heroSlideOrder.map(({ slug, image }) => {
   const service = services.find((s) => s.slug === slug)!;
-  return { ...service, image: `/hero/${slug}.jpg` };
+  return { ...service, image };
 });
 
 export const directors = [

@@ -3,6 +3,7 @@
 @theme {
   --font-display: "Space Grotesk", "Archivo", sans-serif;
   --font-body: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-noto: "Noto Sans", sans-serif;
 
   --color-ink: #0a0a0a;
   --color-ink-2: #161616;
@@ -45,6 +46,13 @@
 
   p {
     margin: 0;
+  }
+
+  /* Las palabras en cursiva (<em>) usan Noto Sans — mismo criterio que
+     legal-oxymoron, por si se agrega énfasis itálico en algún texto. */
+  em {
+    font-family: var(--font-noto);
+    font-style: italic;
   }
 
   ::selection {

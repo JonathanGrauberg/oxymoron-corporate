@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo";
 
 const links = [
   { href: "/", label: "Home" },
@@ -32,7 +31,9 @@ export default function Nav() {
       }`}
     >
       <div className="container-px flex items-center justify-between h-[74px]">
-        <Logo size={17} withTagline={false} color={onDark ? "var(--color-paper)" : "var(--color-ink)"} />
+        <NavLink to="/" className="flex items-center">
+          <img src={onDark ? "/imagotipo-blanco.png" : "/imagotipo-negro.png"} alt="Oxymoron" className="h-6 w-auto" />
+        </NavLink>
 
         <nav className="hidden md:flex items-center gap-9">
           {links.map((l) => (

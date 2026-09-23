@@ -13,7 +13,7 @@ export default function Servicios() {
 
   return (
     <>
-      <PageHero eyebrow="Servicios" title="Nuestros servicios" />
+      <PageHero eyebrow="Servicios" title="Nuestros servicios" image="/images/nuestros-servicios.png" />
 
       <div className="bg-ink text-paper py-20 md:py-28">
         <div ref={pillarsRef} className="container-px grid sm:grid-cols-3 gap-10">

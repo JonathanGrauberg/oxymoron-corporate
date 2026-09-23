@@ -40,6 +40,7 @@ export default function Contacto() {
         eyebrow="Contacto"
         title="Completá el formulario"
         subtitle="Te contestaremos a la brevedad. Muchas gracias."
+        image="/images/contacto.jpg"
       />
 
       <section className="py-20 md:py-28">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MazePattern from "./MazePattern";
 import { mazeWide } from "../assets/mazePaths";
 import { heroSlides } from "../data/content";
+import { useParallax } from "../hooks/useParallax";
 
 const AUTOPLAY_MS = 6500;
 
@@ -10,6 +11,8 @@ export default function HeroSlider() {
   const [index, setIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+  useParallax(bgRef, { distance: 12 });
 
   function go(i: number) {
     setIndex((i + heroSlides.length) % heroSlides.length);
@@ -30,33 +33,36 @@ export default function HeroSlider() {
 
   return (
     <section className="relative bg-ink text-paper pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden min-h-[640px] md:min-h-[720px] flex items-end">
-      {/* Fondos de cada slide, con cross-fade. Mientras no exista la foto
-          real en /public/hero/<slug>.jpg, se ve el patrón de laberinto como
-          placeholder — subir la foto ahí la reemplaza automáticamente. */}
-      {heroSlides.map((slide, i) => (
-        <div
-          key={slide.slug}
-          className="absolute inset-0 transition-opacity duration-1000 ease-out"
-          style={{ opacity: i === index ? 1 : 0 }}
-          aria-hidden={i !== index}
-        >
-          {loadedImages[slide.slug] ? (
-            <img src={slide.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
-          ) : (
-            <div className="absolute inset-0 opacity-[0.16]">
-              <MazePattern data={mazeWide} color="var(--color-paper)" strokeWidth={7} className="w-full h-full" />
-            </div>
-          )}
-          {/* Sonda oculta: si la foto existe, marca el slide como "con imagen". */}
-          <img
-            src={slide.image}
-            alt=""
-            className="hidden"
-            onLoad={() => setLoadedImages((prev) => ({ ...prev, [slide.slug]: true }))}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
-        </div>
-      ))}
+      {/* Fondos de cada slide, con cross-fade + parallax. El wrapper mide de
+          más (116% de alto) para tener margen de sobra al moverse con el
+          scroll sin dejar ver el borde. Mientras no exista la foto en
+          public/images/, se ve el patrón de laberinto como placeholder. */}
+      <div ref={bgRef} className="absolute inset-x-0 -top-[8%] h-[116%]">
+        {heroSlides.map((slide, i) => (
+          <div
+            key={slide.slug}
+            className="absolute inset-0 transition-opacity duration-1000 ease-out"
+            style={{ opacity: i === index ? 1 : 0 }}
+            aria-hidden={i !== index}
+          >
+            {loadedImages[slide.slug] ? (
+              <img src={slide.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+            ) : (
+              <div className="absolute inset-0 opacity-[0.16]">
+                <MazePattern data={mazeWide} color="var(--color-paper)" strokeWidth={7} className="w-full h-full" />
+              </div>
+            )}
+            {/* Sonda oculta: si la foto existe, marca el slide como "con imagen". */}
+            <img
+              src={slide.image}
+              alt=""
+              className="hidden"
+              onLoad={() => setLoadedImages((prev) => ({ ...prev, [slide.slug]: true }))}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
+          </div>
+        ))}
+      </div>
 
       <div className="container-px relative w-full">
         {heroSlides.map((slide, i) => (

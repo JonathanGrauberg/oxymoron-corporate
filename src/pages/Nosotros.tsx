@@ -17,7 +17,7 @@ export default function Nosotros() {
 
   return (
     <>
-      <PageHero eyebrow="Nosotros" title="¿Quiénes somos?" />
+      <PageHero eyebrow="Nosotros" title="¿Quiénes somos?" image="/images/quienes-somos.jpg" />
 
       <section className="py-20 md:py-28">
         <div ref={introRef} className="container-px max-w-3xl">
