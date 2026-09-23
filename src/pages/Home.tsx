@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useReveal } from "../hooks/useReveal";
+import { useParallax } from "../hooks/useParallax";
 import HeroSlider from "../components/HeroSlider";
 import LegalTeaser from "../components/LegalTeaser";
 import { mision, services, vision } from "../data/content";
@@ -8,11 +9,13 @@ import { mision, services, vision } from "../data/content";
 export default function Home() {
   const introRef = useRef<HTMLDivElement>(null);
   const purposeRef = useRef<HTMLDivElement>(null);
+  const purposeBgRef = useRef<HTMLImageElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
 
   useReveal(introRef, "[data-reveal]", { y: 20, stagger: 0.08 });
   useReveal(purposeRef, "[data-reveal]", { y: 20, stagger: 0.1 });
   useReveal(servicesRef, "[data-reveal]", { y: 20, stagger: 0.06 });
+  useParallax(purposeBgRef, { distance: 14 });
 
   return (
     <>
@@ -32,13 +35,32 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="bg-ink text-paper">
-        <div ref={purposeRef} className="container-px grid sm:grid-cols-2 gap-10 py-16 md:py-20">
-          <div data-reveal className="max-w-xs mx-auto text-center">
+      <div className="relative bg-ink text-paper overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            ref={purposeBgRef}
+            src="/images/bg-mision-vision.png"
+            alt=""
+            className="pointer-events-none absolute inset-x-0 -top-[20%] h-[140%] w-full object-cover"
+          />
+          {/* "Viñeta invertida": oscuro sólido al centro (donde está el
+              texto), se va aclarando/transparentando hacia los costados
+              para que la foto asome apenas ahí. */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 100% at center, rgba(10,10,10,0.94) 0%, rgba(10,10,10,0.94) 35%, rgba(10,10,10,0.55) 100%)",
+            }}
+          />
+        </div>
+
+        <div ref={purposeRef} className="container-px relative grid sm:grid-cols-2 gap-10 py-16 md:py-20 max-w-2xl mx-auto">
+          <div data-reveal className="text-center">
             <div className="eyebrow text-paper/50 mb-3 justify-center flex">Nuestra visión</div>
             <p className="text-paper/75 leading-relaxed">{vision}</p>
           </div>
-          <div data-reveal className="max-w-xs mx-auto text-center">
+          <div data-reveal className="text-center">
             <div className="eyebrow text-paper/50 mb-3 justify-center flex">Nuestra misión</div>
             <p className="text-paper/75 leading-relaxed">{mision}</p>
           </div>
