@@ -34,12 +34,12 @@ export default function Home() {
 
       <div className="bg-ink text-paper">
         <div ref={purposeRef} className="container-px grid sm:grid-cols-2 gap-10 py-16 md:py-20">
-          <div data-reveal>
-            <div className="eyebrow text-paper/50 mb-3">Nuestra visión</div>
+          <div data-reveal className="max-w-xs mx-auto text-center">
+            <div className="eyebrow text-paper/50 mb-3 justify-center flex">Nuestra visión</div>
             <p className="text-paper/75 leading-relaxed">{vision}</p>
           </div>
-          <div data-reveal>
-            <div className="eyebrow text-paper/50 mb-3">Nuestra misión</div>
+          <div data-reveal className="max-w-xs mx-auto text-center">
+            <div className="eyebrow text-paper/50 mb-3 justify-center flex">Nuestra misión</div>
             <p className="text-paper/75 leading-relaxed">{mision}</p>
           </div>
         </div>
