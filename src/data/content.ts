@@ -100,7 +100,7 @@ export const heroSlides = heroSlideOrder.map(({ slug, image }) => {
   return { ...service, image };
 });
 
-export const directors = [
+export const directors: Array<{ name: string; role: string; description: string; photo?: string }> = [
   {
     name: "Santiago Miguel Villa",
     role: "Director",
@@ -116,10 +116,10 @@ export const directors = [
 ];
 
 export const team = [
-  { name: "Araceli J. Beisel", role: "Abogada", description: "Agente de la Propiedad Industrial. Registro de marcas, patentamiento, derechos de autor." },
-  { name: "Ana L. Ormaechea", role: "Lic. en Biotecnología", description: "MBA. Project Management. Desarrollo de nuevos productos. Sistemas de calidad." },
-  { name: "Federico González Lamas", role: "Lic. en Administración de Entidades Deportivas", description: "Gestión y capacitaciones en clubes y entidades deportivas." },
-  { name: "Gema Gambino", role: "Contadora", description: "MBA. Organización de la administración y finanzas." },
+  { name: "Araceli J. Beisel", role: "Abogada", description: "Agente de la Propiedad Industrial. Registro de marcas, patentamiento, derechos de autor.", photo: "/images/Araceli.png" },
+  { name: "Ana L. Ormaechea", role: "Lic. en Biotecnología", description: "MBA. Project Management. Desarrollo de nuevos productos. Sistemas de calidad.", photo: "/images/Anita.png" },
+  { name: "Federico González Lamas", role: "Lic. en Administración de Entidades Deportivas", description: "Gestión y capacitaciones en clubes y entidades deportivas.", photo: "/images/Fede.png" },
+  { name: "Gema Gambino", role: "Contadora", description: "MBA. Organización de la administración y finanzas.", photo: "/images/gema-10.png" },
 ] satisfies Array<{ name: string; role: string; description: string; photo?: string }>;
 
 export const aboutIntro =

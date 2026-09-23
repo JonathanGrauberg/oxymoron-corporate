@@ -30,8 +30,8 @@ export default function Nosotros() {
       <div className="bg-ink text-paper py-20 md:py-28">
         <div ref={dirRef} className="container-px grid sm:grid-cols-2 gap-10 max-w-2xl mx-auto">
           {directors.map((d) => (
-            <div key={d.name} data-reveal className="text-center flex flex-col items-center">
-              <Avatar name={d.name} size={110} grayscale />
+            <div key={d.name} data-reveal className="group text-center flex flex-col items-center">
+              <Avatar name={d.name} photo={d.photo} size={110} hoverColor />
               <h3 className="mt-5 font-display text-lg font-semibold">{d.name}</h3>
               <div className="text-xs text-paper/50 mt-1 uppercase tracking-wide">{d.role}</div>
               <p className="mt-4 text-sm text-paper/65 leading-relaxed">{d.description}</p>
@@ -48,8 +48,8 @@ export default function Nosotros() {
           </h2>
           <div ref={teamRef} className="grid sm:grid-cols-2 gap-x-12 gap-y-12 max-w-2xl mx-auto">
             {team.map((m) => (
-              <div key={m.name} data-reveal className="text-center flex flex-col items-center">
-                <Avatar name={m.name} size={84} grayscale />
+              <div key={m.name} data-reveal className="group text-center flex flex-col items-center">
+                <Avatar name={m.name} photo={m.photo} size={84} hoverColor />
                 <h3 className="mt-4 font-display text-base font-semibold">{m.name}</h3>
                 <div className="text-xs text-mute-2 mt-0.5">{m.role}</div>
                 <p className="mt-2.5 text-[0.8rem] leading-relaxed text-mute max-w-[220px]">{m.description}</p>

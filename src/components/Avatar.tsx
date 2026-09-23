@@ -8,6 +8,9 @@ interface AvatarProps {
   photo?: string;
   size?: number;
   grayscale?: boolean;
+  /** blanco y negro por defecto, a color al hacer hover — requiere que el
+   * contenedor padre tenga la clase "group" (Tailwind group-hover). */
+  hoverColor?: boolean;
   className?: string;
 }
 
@@ -20,7 +23,7 @@ function initials(name: string) {
     .join("");
 }
 
-export default function Avatar({ name, photo, size = 88, grayscale = false, className = "" }: AvatarProps) {
+export default function Avatar({ name, photo, size = 88, grayscale = false, hoverColor = false, className = "" }: AvatarProps) {
   return (
     <div
       className={`rounded-full overflow-hidden bg-ink text-paper flex items-center justify-center shrink-0 ${className}`}
@@ -30,7 +33,13 @@ export default function Avatar({ name, photo, size = 88, grayscale = false, clas
         <img
           src={photo}
           alt={name}
-          className={`w-full h-full object-cover object-top ${grayscale ? "grayscale" : ""}`}
+          className={`w-full h-full object-cover object-top ${
+            hoverColor
+              ? "grayscale group-hover:grayscale-0 transition-[filter] duration-500"
+              : grayscale
+                ? "grayscale"
+                : ""
+          }`}
         />
       ) : (
         <span className="font-display font-semibold" style={{ fontSize: size * 0.32 }}>
