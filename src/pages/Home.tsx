@@ -56,12 +56,12 @@ export default function Home() {
         </div>
 
         <div ref={purposeRef} className="container-px relative grid sm:grid-cols-2 gap-10 py-16 md:py-20 max-w-2xl mx-auto">
-          <div data-reveal className="text-center">
-            <div className="eyebrow text-paper/50 mb-3 justify-center flex">Nuestra visión</div>
+          <div data-reveal>
+            <div className="eyebrow text-paper/50 mb-3">Nuestra visión</div>
             <p className="text-paper/75 leading-relaxed">{vision}</p>
           </div>
-          <div data-reveal className="text-center">
-            <div className="eyebrow text-paper/50 mb-3 justify-center flex">Nuestra misión</div>
+          <div data-reveal>
+            <div className="eyebrow text-paper/50 mb-3">Nuestra misión</div>
             <p className="text-paper/75 leading-relaxed">{mision}</p>
           </div>
         </div>
