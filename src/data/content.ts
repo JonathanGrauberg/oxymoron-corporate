@@ -100,7 +100,7 @@ export const heroSlides = heroSlideOrder.map(({ slug, image }) => {
   return { ...service, image };
 });
 
-export const directors: Array<{ name: string; role: string; description: string; photo?: string }> = [
+export const directors: Array<{ name: string; role: string; status?: string; description: string; photo?: string }> = [
   {
     name: "Pablo Tomás Lamas",
     role: "Director",
@@ -110,7 +110,8 @@ export const directors: Array<{ name: string; role: string; description: string;
   },
   {
     name: "Santiago Miguel Villa",
-    role: "En uso de Licencia",
+    role: "Director",
+    status: "En uso de Licencia",
     description:
       "Doctorando en Ciencias Jurídicas y Sociales (UCA), con posgrados en propiedad intelectual y valuación de intangibles en Franklin Pierce Law School / UNH y UC Davis (EE. UU.). Profesor de Derecho Internacional Privado y Derecho Industrial en la UCA, donde coordina el Posgrado de Gestión de Intangibles.",
     photo: "/images/santiago.jpeg",

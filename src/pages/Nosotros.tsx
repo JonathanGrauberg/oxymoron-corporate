@@ -34,6 +34,7 @@ export default function Nosotros() {
               <Avatar name={d.name} photo={d.photo} size={110} hoverColor />
               <h3 className="mt-5 font-display text-lg font-semibold">{d.name}</h3>
               <div className="text-xs text-paper/50 mt-1 uppercase tracking-wide">{d.role}</div>
+              {d.status && <div className="text-xs text-paper/50 mt-0.5 uppercase tracking-wide">{d.status}</div>}
               <p className="mt-4 text-sm text-paper/65 leading-relaxed">{d.description}</p>
             </div>
           ))}
